@@ -5,9 +5,21 @@ pipeline{
     stages{
         stage('buildNumber'){
             steps{
-                sh 'echo Hello this is the build number, fetching it from the pipeline global references'
                 echo "Build number is ${currentBuild.number}"
             }
+            post{
+                sucess{
+                    script{
+                        currentBuild.result = 'Failure'
+                    }
+                }
+            }
+        
+    }
+    post{
+        always{
+            echo currentBuild.Result
+        }
     }
 }
 }
