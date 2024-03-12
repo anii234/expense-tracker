@@ -8,18 +8,19 @@ pipeline{
                 echo "Build number is ${currentBuild.number}"
             }
             post{
-                sucess{
+                success{
                     script{
                         currentBuild.result = 'Failure'
                     }
                 }
             }
-        
-    }
     post{
         always{
             echo currentBuild.Result
         }
     }
+        
+    }
+    
 }
 }
