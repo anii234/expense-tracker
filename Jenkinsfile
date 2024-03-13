@@ -10,7 +10,7 @@ pipeline{
             post{
                 success{
                     script{
-                        currentBuild.Result = 'failed'
+                        currentBuild.result = 'UNSTABLE'
                     }
                 }
             }
@@ -18,7 +18,7 @@ pipeline{
     }
     post{
         always{
-            echo currentBuild.Result
+            echo currentBuild.result
         }
     }
 }
