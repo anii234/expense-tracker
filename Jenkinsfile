@@ -10,7 +10,7 @@ pipeline{
             post{
                 success{
                     script{
-                        currentBuild.result = 'success'
+                        currentBuild.Result = 'failed'
                     }
                 }
             }
@@ -18,7 +18,7 @@ pipeline{
     }
     post{
         always{
-            echo currentBuild.result
+            echo currentBuild.Result
         }
     }
 }
